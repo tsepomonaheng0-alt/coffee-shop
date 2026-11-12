@@ -1,0 +1,21 @@
+{
+  "name": "coffee-shop-backend",
+  "version": "1.0.0",
+  "description": "Express.js REST API for the Coffee Shop Management System (Redis key-value storage)",
+  "type": "module",
+  "main": "src/server.js",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "ioredis": "^5.4.1"
+  }
+}

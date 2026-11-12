@@ -1,0 +1,24 @@
+# Render Blueprint for the Express API. (Redis is hosted separately - see docs/DEPLOYMENT.md.)
+services:
+  - type: web
+    name: coffee-shop-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: REDIS_URL
+        sync: false        # paste your persistent Redis URL in the Render dashboard
+      - key: STAFF_USERNAME
+        value: staff
+      - key: STAFF_PASSWORD
+        sync: false
+      - key: TOKEN_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false        # your frontend URL, e.g. https://coffee-shop.vercel.app
+      - key: SHOP_TIMEZONE
+        value: Africa/Maseru
